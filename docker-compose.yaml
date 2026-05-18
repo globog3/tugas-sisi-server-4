@@ -10,6 +10,7 @@ services:
     depends_on:
       - redis
       - mongodb
+      - rabbitmq
 
   redis:
     image: redis:7-alpine
@@ -22,3 +23,41 @@ services:
     container_name: lms-mongodb
     ports:
       - "27017:27017"
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: lms-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  celery-worker:
+    build: .
+    container_name: lms-celery-worker
+    command: celery -A config worker -l info
+    volumes:
+      - .:/app
+    depends_on:
+      - rabbitmq
+      - redis
+      - app
+
+  celery-beat:
+    build: .
+    container_name: lms-celery-beat
+    command: celery -A config beat -l info
+    volumes:
+      - .:/app
+    depends_on:
+      - rabbitmq
+      - redis
+      - app
+
+  flower:
+    image: mher/flower
+    container_name: lms-flower
+    command: celery --broker=amqp://guest:guest@rabbitmq:5672// flower
+    ports:
+      - "5555:5555"
+    depends_on:
+      - rabbitmq

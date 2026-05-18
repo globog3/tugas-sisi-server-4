@@ -138,9 +138,27 @@ CACHES = {
     }
 }
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.UserRateThrottle',
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'user': '60/minute',
+    }
+}
+
 from mongoengine import connect
 connect(
     db="lms_logs",
     host="mongodb",
     port=27017
 )
+
+CELERY_BROKER_URL = 'pyamqp://guest:guest@lms-rabbitmq//'
+
+CELERY_RESULT_BACKEND = 'redis://lms-redis:6379/1'
+
+CELERY_ACCEPT_CONTENT = ['json']
+
+CELERY_TASK_SERIALIZER = 'json'
