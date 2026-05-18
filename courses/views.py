@@ -1,18 +1,23 @@
 from rest_framework import generics
 from .models import Course
 from .serializers import CourseSerializer
-
-from django.utils.decorators import method_decorator
-from django.views.decorators.cache import cache_page
+from .mongo_models import ActivityLog
 
 
-@method_decorator(cache_page(60 * 5), name='dispatch')
 class CourseListAPIView(generics.ListCreateAPIView):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
 
+    def get(self, request, *args, **kwargs):
 
-@method_decorator(cache_page(60 * 5), name='dispatch')
+        ActivityLog(
+            action="GET Courses",
+            endpoint="/api/courses/"
+        ).save()
+
+        return super().get(request, *args, **kwargs)
+
+
 class CourseDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer

@@ -137,3 +137,10 @@ CACHES = {
         }
     }
 }
+
+from mongoengine import connect
+connect(
+    db="lms_logs",
+    host="mongodb",
+    port=27017
+)
