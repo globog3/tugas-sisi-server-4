@@ -1,3 +1,3 @@
-https://cdn.discordapp.com/attachments/822322074643071016/1505986355157663896/image.png?ex=6a0c9e96&is=6a0b4d16&hm=3735a7fdd914923c9ca736cb7c75da7b09bc889bd0963f3124a01fda6ffe19c8&
-https://cdn.discordapp.com/attachments/822322074643071016/1505983728919515317/image.png?ex=6a0c9c24&is=6a0b4aa4&hm=cbd58d4264f7ae3821465c1e915bec91aaceef5f731aad534bb99af1df91ce12&
-https://cdn.discordapp.com/attachments/822322074643071016/1505967946269200524/image.png?ex=6a0c8d71&is=6a0b3bf1&hm=727db2e241e13f9bdf452ad80ab971059b9d955894eaf13eab8ad8495cd92faf&
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/26bbaa96-a3a5-4ebd-bf81-bbc3f8c6a04d" />
+<img width="793" height="443" alt="image" src="https://github.com/user-attachments/assets/623fb89e-53af-47dd-921f-9d99b2cbd986" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c4aa773c-8150-4961-a2c9-80d7fa6a273d" />
